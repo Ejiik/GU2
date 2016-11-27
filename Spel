@@ -1,0 +1,18 @@
+public class Spel {
+	private PaintWindow_GU2 window = new PaintWindow_GU2(500,500,"RPG",Color.BLACK);
+	private Player playerOne;
+	private ImageIcon attackIcon;
+	private ImageIcon defendIcon;
+	private ImageIcon healIcon;
+	private ImageIcon playerIcon;
+	private ImageIcon enemyIcon;
+	
+	public void run() {
+		
+	}
+	
+	public static void main(String[] args) {
+		Spel prog = new Spel();
+		prog.run();
+	}
+}
