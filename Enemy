@@ -1,0 +1,27 @@
+public class Enemy {
+	private int hp, attackValue, defenseValue;
+	Random rand = new Random();
+	
+	public Enemy(int hp) {
+		this.hp = hp;
+	}
+	
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+	
+	public int getHp() {
+		return hp;
+	}
+	
+	public int attack() {
+		attackValue = rand.nextInt(10);
+		return attackValue;
+	}
+	
+	public int defend() {
+		defenseValue = rand.nextInt(10);
+		return defenseValue;
+	}
+
+}
