@@ -1,18 +1,79 @@
+package g2;
+
+import java.awt.*;
+import java.util.*;
+import javax.swing.*;
+
+import gu2.PaintWindow_GU2;
+import paintpanel.Text;
+
 public class Spel {
 	private PaintWindow_GU2 window = new PaintWindow_GU2(500,500,"RPG",Color.BLACK);
 	private Player playerOne;
-	private ImageIcon attackIcon;
-	private ImageIcon defendIcon;
-	private ImageIcon healIcon;
-	private ImageIcon playerIcon;
-	private ImageIcon enemyIcon;
+	private Enemy enemyOne;
+	private ImageIcon attackIcon = new ImageIcon("imagesGU2/attack.png");
+	private ImageIcon defendIcon = new ImageIcon("imagesGU2/defense.png");
+	private ImageIcon healIcon = new ImageIcon("imagesGU2/heal.png");
+	private ImageIcon playerIcon = new ImageIcon("imagesGU2/player.png");
+	private ImageIcon enemyIcon = new ImageIcon("imagesGU2/enemy.png");
+	private Font font1 = new Font("Arial", Font.ITALIC, 25);
+	private Spellogik logik = new Spellogik();
 	
 	public void run() {
+		window.addIcon(attackIcon, 0, 450, true);
+		window.addIcon(defendIcon, 50, 450, true);
+		window.addIcon(healIcon, 100, 450, true);
+		window.addIcon(playerIcon, 100, 250, true);
+		window.addIcon(enemyIcon, 300, 250, true);
+		
+		window.setIconAction(attackIcon, logik, "playerAttack");
+		window.setIconAction(defendIcon, logik, "playerDefend");
+		window.setIconAction(healIcon, logik, "playerHeal");
 		
 	}
 	
-	public static void main(String[] args) {
-		Spel prog = new Spel();
-		prog.run();
+	public void playerAttackText(int attackValue) {
+		Text attackscore = new Text(String.valueOf(attackValue), font1, Color.RED);
+		window.addText(attackscore, 300, 200);
+		window.pause(2000);
+		window.removeIcon(attackscore);
+		window.pause(2000);
+		logik.enemyAttack();
+		
 	}
+	
+	public void playerDefendText(int attackValue) {
+		Text defendscore = new Text(String.valueOf(attackValue), font1, Color.RED);
+		window.addText(defendscore, 300, 300);
+		window.pause(2000);
+		window.removeIcon(defendscore);
+		window.pause(2000);
+		logik.enemyAttack();
+	}
+	
+	public void playerHealText(int healValue) {
+		Text healpoints = new Text(String.valueOf(healValue), font1, Color.BLUE);
+		window.addText(healpoints, 250, 250);
+		window.pause(2000);
+		window.removeIcon(healpoints);
+		window.pause(2000);
+		logik.enemyAttack();
+	}
+	
+	public void enemyAttackText(int attackValue) {
+		Text attackscore = new Text(String.valueOf(attackValue), font1, Color.RED);
+		window.addText(attackscore, 100, 100);
+		window.pause(2000);
+		window.removeIcon(attackscore);
+	}
+	
+	public void playerHPdisplay(int playerHP) {
+		Text playerhits = new Text(String.valueOf(playerHP), font1, Color.WHITE);
+		window.addText(playerhits, 100, 450);
+		
+	}
+	
+	
+
+	
 }
