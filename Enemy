@@ -18,10 +18,4 @@ public class Enemy {
 		attackValue = rand.nextInt(10);
 		return attackValue;
 	}
-	
-	public int defend() {
-		defenseValue = rand.nextInt(10);
-		return defenseValue;
-	}
-
 }
