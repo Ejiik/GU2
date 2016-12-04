@@ -1,3 +1,7 @@
+package g2;
+
+import java.util.*;
+
 public class Player {
 	private int hp, attackValue, defenseValue, healValue, mp;
 	Random rand = new Random();
@@ -24,7 +28,7 @@ public class Player {
 	}
 	
 	public int attack() {
-		attackValue = rand.nextInt(10 + 5);
+		attackValue = rand.nextInt(10);
 		return attackValue;
 	}
 	
@@ -33,10 +37,11 @@ public class Player {
 		return defenseValue;
 	}
 	
-	public void heal() {
-		healValue = rand.nextInt(25 + 10);
+	public int heal() {
+		healValue = rand.nextInt(10) + 5;
 		hp += healValue;
-		mp -= 10;
+		mp -= 3;
+		return healValue;
 	}
 
 }
