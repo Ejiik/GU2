@@ -1,0 +1,40 @@
+package g2;
+
+public class Spellogik {
+	private Player playerOne = new Player(50, 20);
+	private Enemy enemyOne = new Enemy(20);
+	static Spel prog = new Spel();
+	
+	public static void main(String[] args) {
+		prog.run();
+	}
+	
+	public void playerAttack() {
+		int attackV = playerOne.attack();
+		enemyOne.setHp(-attackV);
+		prog.playerAttackText(attackV);
+	}
+	
+	public void playerDefend() {
+		int attackV = enemyOne.attack();
+		playerOne.setHp(attackV / 2);
+		prog.playerDefendText(attackV);
+	}
+	
+	public void playerHeal() {
+		int healValue = playerOne.heal();
+		prog.playerHealText(healValue);
+	}
+	
+	public void enemyAttack() {
+		int attackV = enemyOne.attack();
+		playerOne.setHp(-attackV);
+		prog.enemyAttackText(attackV);
+	}
+	
+	public void playerHP() {
+		int playerHP = playerOne.getHp();
+		prog.playerHPdisplay(playerHP);
+	}
+
+}
