@@ -1,3 +1,7 @@
+package g2
+
+import java.util.Random;
+
 public class Enemy {
 	private int hp, attackValue, defenseValue;
 	Random rand = new Random();
